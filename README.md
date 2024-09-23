@@ -1,5 +1,9 @@
 ## Utilidad para obtener datos de las convocatorias CAS
 
+Usando ExpressJS
+
 ## Todo
-- Validate URL
+- Run using a server
+  - Validate URL
+  - Reorganize files and folders
 - Create UI
