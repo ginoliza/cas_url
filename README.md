@@ -3,7 +3,4 @@
 Usando ExpressJS
 
 ## Todo
-- Run using a server
-  - Validate URL
-  - Reorganize files and folders
-- Create UI
+- Scrap website to get URL info
