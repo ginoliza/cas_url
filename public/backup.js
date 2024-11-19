@@ -1,25 +1,10 @@
 // scrapper 
-const inputValue = '';
+const url = '';
+const axios = require('axios');
+const cheerio = require('cheerio');
+const readline = require('node:readline');
 
-document.getElementById('myForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const url = document.getElementById('inputField').value;
-
-  try {
-    const response = await fetch(`/scrape?url=${encodeURIComponent(url)}`);
-    const data = await response.json();
-    
-    if (data.title) {
-      alert(`Page Title: ${data.title}`);
-    } else {
-      alert('Failed to scrape the page.');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    alert('An error occurred.');
-  }
-});
+let inputURL = '';
 
 async function processURL(url) {
   try {
@@ -43,8 +28,9 @@ async function processURL(url) {
     }
 
     // Output the modified lines
-    console.log(line1);
     console.log(line2);
+    console.log(url);    
+    console.log(line1);    
     console.log(amount);
     
   } catch (error) {
@@ -52,6 +38,14 @@ async function processURL(url) {
   }
 }
 
-// processURL(
-//   "https://www.convocatoriasdetrabajo.com/oportunidad-laboral-cas-007-tecnico-administrativo-universidad-jose-maria-arguedas-apurimac-425734.html"
-// );
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question(`URL: `, name => {
+  inputURL = name;  
+  console.log("\n");  
+  processURL(inputURL);
+  rl.close();
+});
